@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  ;
 }
 
 .main-container{
@@ -13,6 +14,7 @@
   background-size: cover;
   /* src\assets\courage-house.jpg */
   overflow: hidden;
+  cursor: url('./src/assets/courage-hand.png') 4 12,auto
 }
 .response-container{
   display: flex;
@@ -69,4 +71,12 @@
   /* border-radius: 10px; */
   background-image: url("./src/assets/computer-final-1.png");
   /* src\assets\computer-final-1.png */
+}
+.icon-sound{
+  position: absolute;
+  font-size: 50px;
+  color: white;
+  margin-top: 10px;
+  margin-left: 10px;
+  cursor: pointer;
 }

@@ -11,6 +11,7 @@
   border-left: 20px solid #dfdf7c;
   border-right: 20px solid #dfdf7c;
   border-bottom: 10px solid #dfdf7c;
+  cursor: url('./src/assets/courage-hand.png'),auto;
 
 
   overflow: hidden;
