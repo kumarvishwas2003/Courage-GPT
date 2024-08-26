@@ -1,0 +1,17 @@
+.help-container{
+  width: 100vw;
+  height: 100vh;
+  background-color: #57BD8E;
+  /* background-image: url('./src/assets/computer-final-1.png'); */
+  /* background-position: center; */
+  /* background-size:cover; */
+  /* background-repeat: none; */
+  /* border: 7px solid #dfdf7c; */
+  border-top: 10px solid #dfdf7c;
+  border-left: 20px solid #dfdf7c;
+  border-right: 20px solid #dfdf7c;
+  border-bottom: 10px solid #dfdf7c;
+
+
+  overflow: hidden;
+}
