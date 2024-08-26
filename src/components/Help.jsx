@@ -31,12 +31,16 @@ const Help = () => {
   }
   return (
     <>
-      <div className="help-container">
+          <div className="help-container">
+              <div className="input-box">
+                  
         <input
           type="text"
           onKeyDown={keyboard_press}
-          placeholder="Press here..."
+                    //   placeholder="Press here..."
+                      className='box'
         />
+              </div>
       </div>
     </>
   );
