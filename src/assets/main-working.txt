@@ -1,0 +1,2 @@
+we will use chat gpt api and it will be trained to give precise,dry,sarcastic and useless answers 
+extra step add text to speech fuctionality
