@@ -1,19 +1,51 @@
-import React from "react";
-const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+import React, { useEffect } from "react";
+// const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
 import "./Help.css";
 import { Sound_btn } from "../Sound_btn/Sound_btn";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import Groq from "groq-sdk";
+
+const groq = new Groq({
+  apiKey: import.meta.env.VITE_GROQ_API_KEY,
+  dangerouslyAllowBrowser: true,
+});
 
 const Help = () => {
+  //groqapi
+  const [response, setResponse] = useState(""); // For storing API response
+  const [loading, setLoading] = useState(false); // To handle loading state
+  const [error, setError] = useState(null);
 
-    const [response, setResponse] = useState(
-      "LOREM, IPSUM DOLOR SIT AMET CONSECTETUR ADIPISICING ELIT. DELECTUS ALIQUAM QUIBUSDAM EAEQUE MAIORES ACCUSANTIUM EUM MOLESTIAE, REPELLAT IUSTO MAGNAM ET, DICTA ILLO NUMQUAM ACCUSAMUS DELENITI ADIPISCI, QUI LAUDANTIUM MOLITIA. PERFERENDIS CUMQUE EXPLICABO NIHIL EUM QUAS.LOREM, IPSUM DOLOR SIT AMET CONSECTETUR ADIPISICING ELIT. DELECTUS ALIQUAM QUIBUSDAM EAEQUE MAIORES ACCUSANTIUM EUM MOLESTIAE, REPELLAT IUSTO MAGNAM ET, DICTA ILLO NUMQUAM ACCUSAMUS DELENITI ADIPISCI, QUI LAUDANTIUM MOLITIA. PERFERENDIS CUMQUE EXPLICABO NIHIL EUM QUAS.LOREM, IPSUM DOLOR SIT AMET CONSECTETUR ADIPISICING ELIT. DELECTUS ALIQUAM QUIBUSDAM EAEQUE MAIORES ACCUSANTIUM EUM MOLESTIAE, REPELLAT IUSTO MAGNAM ET, DICTA ILLO NUMQUAM ACCUSAMUS DELENITI ADIPISCI, QUI LAUDANTIUM MOLITIA. PERFERENDIS CUMQUE EXPLICABO NIHIL EUM QUAS. VISHWASLAUDANTIUM MOLITIA. PERFERENDIS CUMQUE EXPLICABO NIHIL EUM QUAS.LOREM, IPSUM "
-  );
-  
+  const handelSubmit = async (e) => {
+    e.preventDefault();
+    const fetchGroqResponse = async () => {
+      setLoading(true);
+      try {
+        const chatCompletion = await groq.chat.completions.create({
+          messages: [
+            {
+              role: "user",
+              content: `You are the sarcastic, insulting computer from Courage the Cowardly Dog. Reply with remarks like 'You coward' or 'Pathetic' and provide detailed solutions.
+              response is ${text}`,
+            },
+          ],
+          model: "llama3-8b-8192",
+        });
 
-    
-  
+        // Update the state with the response
+        setResponse(
+          chatCompletion.choices[0]?.message?.content || "No response"
+        );
+      } catch (err) {
+        setError("Failed to fetch the response. Please try again later.");
+      }
+      setLoading(false);
+    };
+    fetchGroqResponse();
+    changeText("")
+  };
+
   const [text, changeText] = useState("");
   const changeToCapital = (e) => {
     changeText(e.target.value.toUpperCase());
@@ -73,13 +105,15 @@ const Help = () => {
 
           <div className="second-row">
             <div className="input-box">
-              <input
-                type="text"
-                value={text}
-                onKeyDown={keyboard_press}
-                onChange={changeToCapital}
-                className="box"
-              />
+              <form onSubmit={handelSubmit}>
+                <input
+                  type="text"
+                  value={text}
+                  onKeyDown={keyboard_press}
+                  onChange={changeToCapital}
+                  className="box"
+                />
+              </form>
             </div>
           </div>
           <div className="third-row">
