@@ -1,3 +1,4 @@
+
 .main-container{
   width: 100vw;
   height: 100vh;
@@ -7,11 +8,9 @@
   background-repeat: no-repeat;
   overflow: hidden;
   display: flex;
-  cursor: url('./src/assets/courage-hand.png') 4 12,auto;
   position: relative;
     justify-content: center;
     align-items: end;
-    z-index: -100;
 }
 .icon-sound{
   position: absolute;
@@ -29,9 +28,10 @@
 .courage-text{
   font-family: "copper";
   font-size: 35px;
-  color: rgb(253,51,26);
+  font-weight: 900;
+  color: rgb(255, 30, 0);
   -webkit-text-stroke: 1.5px black;  
-             text-stroke: 2px black; 
+             /* text-stroke: 2px black;  */
 }
 .interact-div{
     display: flex;
@@ -46,12 +46,23 @@
     background-position: center;
     background-repeat: none;
     position: relative;
+    /* background-color: red; */
+    cursor: pointer;
+
 }
 .div-help{
     position: absolute;
     font-size: 50px;
-    top: 30%;
-    left: 30%;
+    top: 28%;
+    left: 26%;
+    text-decoration: none;
+    z-index: 100;
+    font-weight: 800;
+    color: red;
+    cursor: pointer;
+  -webkit-text-stroke: 1.5px black;  
+
+    /* background-color: red; */
 }
 .villian{
     position: absolute;
@@ -69,7 +80,7 @@
    flex-wrap: nowrap;
     width: 190px;
     right: 13%;
-    top: 60%; 
+    top: 65%; 
 }
 .katze-div{
       display: flex;

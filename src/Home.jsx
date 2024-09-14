@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./App.css";
+import "./Home.css";
 import { Sound_btn } from "./components/Sound_btn/Sound_btn";
 
-const App = () => {
+const Home = () => {
   // let root = `./src/assets/villians/`;
-  const villians = ["foot", "fred", "katze", "cat", "duck", "rams"];
+  const villians =  [
+    "foot",
+    "fred",
+    "katze",
+    "cat",
+    "duck",
+    "rams",
+  ];
 
   const [currentVillian, nextVillian] = useState(0);
   useEffect(() => {
@@ -27,10 +34,7 @@ const App = () => {
             <div className="courage-text">COURAGE-GPT</div>
           </div>
           <div className="computer-div">
-            {/* <img src="" alt="" width={`270px`}/> */}
-            <Link to={`/help`} className="div-help">
-              Help
-            </Link>
+            <Link to="/help" className="div-help">Help</Link>
           </div>
           <div>
             {villians.map((villian, index) => (
@@ -68,4 +72,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;
