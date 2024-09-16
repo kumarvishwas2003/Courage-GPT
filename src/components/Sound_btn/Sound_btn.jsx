@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from "react";
 // import normal_theme from "./assets/audio/normal-theme.m4a";
 import { useRef } from "react";
-export const Sound_btn = ({music}) => {
- const [enable, setEnable] = useState(false);
- const audioRef = useRef(new Audio(`./src/assets/audio/${music}.m4a`));
+export const Sound_btn = ({ music }) => {
+  const [enable, setEnable] = useState(false);
+  const [on,seton] = useState(true)
+  const audioRef = useRef(new Audio(`./src/assets/audio/${music}.m4a`));
 
- useEffect(() => {
-   const audio = audioRef.current;
-   audio.loop = true;
+  useEffect(() => {
+    const audio = audioRef.current;
+    audio.loop = true;
+    audio.volume = 0.4;
+    if (enable) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
 
-   if (enable) {
-     audio.play();
-   } else {
-     audio.pause();
-   }
+    // Cleanup on component unmount
+    return () => {
+      audio.pause();
+      audio.currentTime = 0; // Reset audio to start
+    };
+  }, [enable]);
 
-   // Cleanup on component unmount
-   return () => {
-     audio.pause();
-     audio.currentTime = 0; // Reset audio to start
-   };
- }, [enable]);
-
- function toggle() {
-   setEnable((prevEnable) => !prevEnable);
-   console.log(enable);
- }
+  function toggle() {
+    setEnable((prevEnable) => !prevEnable);
+    console.log(enable);
+  }
   return (
     <div onClick={toggle}>
       {enable ? (

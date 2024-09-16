@@ -31,7 +31,7 @@ const Home = () => {
         <div className="interact-div">
           <div className="courage-div">
             <img src="./src/assets/courage-dog.gif" alt="" width={`230px`} />
-            <div className="courage-text">COURAGE-GPT</div>
+            <div className="courage-text">CourageGPT</div>
           </div>
           <div className="computer-div">
             <Link to="/help" className="div-help">Help</Link>
@@ -47,25 +47,6 @@ const Home = () => {
               </div>
             ))}
           </div>
-          {/* //villians */}
-          {/* <div className="foot-div villian">
-            <img src="./src/assets/villians/foot.webp" alt="" />
-          </div>
-          <div className="fred-div villian">
-            <img src="./src/assets/villians/fred.webp" alt="" />
-          </div>
-          <div className="katze-div villian">
-            <img src="./src/assets/villians/katze.webp" alt="" />
-          </div>
-          <div className="cat-div villian">
-            <img src="./src/assets/villians/cat.webp" alt="" />
-          </div>
-          <div className="duck-div villian">
-            <img src="./src/assets/villians/duck.webp" alt="" />
-          </div>
-          <div className="rams-div villian">
-            <img src="./src/assets/villians/ramse.webp" alt="" />
-          </div> */}
         </div>
       </div>
     </>

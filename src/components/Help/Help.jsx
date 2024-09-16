@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
-// const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+import React, { useEffect, useState } from "react";
 import "./Help.css";
 import { Sound_btn } from "../Sound_btn/Sound_btn";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import Groq from "groq-sdk";
 
 const groq = new Groq({
@@ -12,45 +10,73 @@ const groq = new Groq({
 });
 
 const Help = () => {
-  //groqapi
+  // State variables
+  const [text, changeText] = useState("");
   const [response, setResponse] = useState(""); // For storing API response
   const [loading, setLoading] = useState(false); // To handle loading state
   const [error, setError] = useState(null);
+  const [voice, setVoice] = useState(null); // For storing selected voice
 
+  // Desired voice name
+  const desiredVoiceName = "Google UK English Male"; // Change this to the exact name of the voice you want
+
+  // Populate voice options on component mount
+  useEffect(() => {
+    const populateVoice = () => {
+      const availableVoices = speechSynthesis.getVoices();
+      const selectedVoice = availableVoices.find(
+        (v) => v.name === desiredVoiceName
+      );
+      setVoice(selectedVoice);
+    };
+
+    if (window.speechSynthesis.getVoices().length > 0) {
+      populateVoice();
+    } else {
+      // If voices are not loaded, wait for the voiceschanged event
+      window.speechSynthesis.onvoiceschanged = populateVoice;
+    }
+  }, []);
+
+  // Speak function outside to handle text speaking
+const speak = (textToSpeak) => {
+  const utterance = new SpeechSynthesisUtterance(textToSpeak);
+  window.speechSynthesis.speak(utterance);
+};
+
+  // Form submission handler
   const handelSubmit = async (e) => {
     e.preventDefault();
-    const fetchGroqResponse = async () => {
-      setLoading(true);
-      try {
-        const chatCompletion = await groq.chat.completions.create({
-          messages: [
-            {
-              role: "user",
-              content: `You are the sarcastic, insulting computer from Courage the Cowardly Dog. Reply with remarks like 'You coward' or 'Pathetic' and provide detailed solutions.
-              response is ${text}`,
-            },
-          ],
-          model: "llama3-8b-8192",
-        });
+    setLoading(true);
+    try {
+      const chatCompletion = await groq.chat.completions.create({
+        messages: [
+          {
+            role: "user",
+            content: `You are a snarky computer with dry humor from the cartoon Courage the Cowardly Dog and please don't be much harsh as we have to stay inside the policy. Reply with playful jabs like 'Nice try' or 'Well, that was bold... and wrong. Provide detailed solutions. Response is ${text}`,
+          },
+        ],
+        model: "llama3-8b-8192",
+      });
 
-        // Update the state with the response
-        setResponse(
-          chatCompletion.choices[0]?.message?.content || "No response"
-        );
-      } catch (err) {
-        setError("Failed to fetch the response. Please try again later.");
-      }
-      setLoading(false);
-    };
-    fetchGroqResponse();
-    changeText("")
+      // Update the state with the response
+      // In handelSubmit
+      const responseText =
+        chatCompletion.choices[0]?.message?.content || "No response";
+      setResponse(responseText);
+      console.log(responseText);
+      setTimeout(() => speak(responseText), 1000); // Delay to ensure text is set
+
+      setResponse(responseText);
+    } catch (err) {
+      setError("Failed to fetch the response. Please try again later.");
+    }
+    setLoading(false);
+    changeText("");
   };
 
-  const [text, changeText] = useState("");
-  const changeToCapital = (e) => {
-    changeText(e.target.value.toUpperCase());
-  };
-  function keyboard_press() {
+  // Function to handle keyboard noise
+  const keyboard_press = () => {
     const audio_keyboard = new Audio("./src/assets/audio/keyboard.m4a");
     audio_keyboard.currentTime = 0.5;
     audio_keyboard.play();
@@ -59,13 +85,18 @@ const Help = () => {
       audio_keyboard.pause();
       audio_keyboard.currentTime = 0; // Reset to the beginning for the next play
     }, 300);
-    console.log("pressed");
-  }
+  };
 
-  function reset() {
-    console.log("reset");
+  // Function to reset response
+  const reset = () => {
     setResponse("");
-  }
+  };
+
+  // Function to convert text to uppercase
+  const changeToCapital = (e) => {
+    changeText(e.target.value.toUpperCase());
+  };
+
   return (
     <div>
       <div className="computer">

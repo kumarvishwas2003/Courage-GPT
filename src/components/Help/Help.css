@@ -65,6 +65,7 @@
     max-height: 100%; /* Adjust this based on your design requirements */
     font-family: "micro";
     color: #b8ed96;
+    font-weight: 700;
     /* background-color: #333; Optional: Add a background color if needed */
 }
 .right{
