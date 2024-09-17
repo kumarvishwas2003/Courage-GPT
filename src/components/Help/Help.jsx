@@ -39,10 +39,10 @@ const Help = () => {
   }, []);
 
   // Speak function outside to handle text speaking
-const speak = (textToSpeak) => {
-  const utterance = new SpeechSynthesisUtterance(textToSpeak);
-  window.speechSynthesis.speak(utterance);
-};
+  const speak = (textToSpeak) => {
+    const utterance = new SpeechSynthesisUtterance(textToSpeak);
+    window.speechSynthesis.speak(utterance);
+  };
 
   // Form submission handler
   const handelSubmit = async (e) => {
@@ -53,7 +53,7 @@ const speak = (textToSpeak) => {
         messages: [
           {
             role: "user",
-            content: `You are a snarky computer with dry humor from the cartoon Courage the Cowardly Dog and please don't be much harsh as we have to stay inside the policy. Reply with playful jabs like 'Nice try' or 'Well, that was bold... and wrong. Provide detailed solutions. Response is ${text}`,
+            content: `You are a snarky computer with dry humor from the cartoon Courage the Cowardly Dog and please don't be much harsh as we have to stay inside the policy. Reply with playful jabs like 'Nice try' or 'Well, that was bold... and wrong.the response generated should be very small and consie and not more than 10 lines, small within one paragraph. prompt is ${text}`,
           },
         ],
         model: "llama3-8b-8192",
@@ -90,6 +90,9 @@ const speak = (textToSpeak) => {
   // Function to reset response
   const reset = () => {
     setResponse("");
+    changeText("");
+    setVoice("");
+    speak("");
   };
 
   // Function to convert text to uppercase

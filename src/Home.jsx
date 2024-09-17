@@ -18,7 +18,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       nextVillian((prev) => (prev + 1) % villians.length);
-    }, 3000);
+    }, 2000);
     return () => clearTimeout(timer);
   }, [currentVillian]);
 
@@ -34,19 +34,22 @@ const Home = () => {
             <div className="courage-text">CourageGPT</div>
           </div>
           <div className="computer-div">
-            <Link to="/help" className="div-help">Help</Link>
+              <img src="./src/assets/computer.png" alt="" />
+            <Link to="/help" className="div-help">
+              Help
+            </Link>
           </div>
-          <div>
-            {villians.map((villian, index) => (
-              <div
-                key={villian}
-                className={`${villian}-div villian`}
-                style={{ display: currentVillian === index ? "flex" : "none" }}
-              >
-                <img src={`./src/assets/villians/${villian}.webp`} alt="" />
-              </div>
-            ))}
-          </div>
+        </div>
+        <div>
+          {villians.map((villian, index) => (
+            <div
+              key={villian}
+              className={`${villian}-div villian`}
+              style={{ display: currentVillian === index ? "flex" : "none" }}
+            >
+              <img src={`./src/assets/villians/${villian}.webp`} alt="" />
+            </div>
+          ))}
         </div>
       </div>
     </>

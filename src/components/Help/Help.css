@@ -1,73 +1,86 @@
-@font-face{
-    font-family: "micro";
-    src: url("./src/assets/fonts/micro.otf") format("opentype");
-     font-weight: normal; /* Define the font weight */
-    font-style: normal;
+@font-face {
+  font-family: "micro";
+  src: url("./src/assets/fonts/micro.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
-.computer{
-    width: 100vw;
-    height: 100vh;
-        background-color:#faea8c;
+.computer {
+  width: 100vw;
+  height: 100vh;
+  background-color: #faea8c;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.screen{
-    height: 90vh;
-    width: 95vw;
-    background-color:  #0aa77c;
-    border-radius: 30px;
-    padding: 20px;
-    border: 1px solid black;
+.screen {
+  height: 90vh;
+  width: 95vw;
+  background-color: #0aa77c;
+  border-radius: 30px;
+  padding: 20px;
+  border: 1px solid black;
 }
-.first-row{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5px;
-    height: 20%;
+.first-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  height: 20%;
 }
-.back-btn{
-    /* position: absolute; */
+.back-btn {
   font-size: 50px;
-  color: white;
+  color: #005941;
   font-weight: bold;
 }
-.sound{
-    font-size: 50px;
-  color: white;
+.sound {
+  font-size: 50px;
+        color: #005941;
+
 }
-.box{
-    font-family: "Raleway Dots", sans-serif;
-    width: 100%;
-    height: 100%;
-    padding: 5px;
-    font-size: 100px;
-    border:3px dotted red;
-    font-weight: 900;
-    color: red;
-    outline: none;
+.box {
+  font-family: "Raleway Dots", sans-serif;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  font-size: 100px;
+  border: 3px dotted red;
+  font-weight: 900;
+  color: red;
+  outline: none;
 }
-.second-row{
-    height: 20%;
-    /* background-color: yellow; */
+.second-row {
+  height: 20%;
 }
-.third-row{
-    height: 60%;
-    /* background-color: pink; */
+.third-row {
+  height: 60%;
 }
 .response-box {
-    margin-top: 20px;
-    font-size: 35px;
-    overflow-y: auto; /* Enables scrolling inside the box */
-    padding: 20px;
-    max-height: 100%; /* Adjust this based on your design requirements */
-    font-family: "micro";
-    color: #b8ed96;
-    font-weight: 700;
-    /* background-color: #333; Optional: Add a background color if needed */
+  margin-top: 20px;
+  font-size: 35px;
+  overflow-y: auto; /* Enables scrolling inside the box */
+  padding: 20px;
+  max-height: 100%; /* Adjust this based on your design requirements */
+  font-family: "micro";
+  color: #b8ed96;
+  font-weight: 700;
 }
-.right{
+.right {
+  display: flex;
+}
+
+@media only screen and (max-width: 765px) {
+  .sound {
+    font-size: 30px;
+    color: #005941;
+  }
+  .back-btn {
+    font-size: 30px;
+    color: #005941;
+  }
+  .reset-div {
     display: flex;
+    width: 120px;
+    height: 90px;
+  }
 }

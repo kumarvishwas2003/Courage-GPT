@@ -1,110 +1,125 @@
-
-.main-container{
+.main-container {
   width: 100vw;
   height: 100vh;
-  background-image: url('./src/assets/courage-house.jpg');
+  background-image: url("./src/assets/courage-house.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
   display: flex;
   position: relative;
-    justify-content: center;
-    align-items: end;
+  justify-content: center;
+  align-items: end;
 }
-.icon-sound{
+.icon-sound {
   position: absolute;
   font-size: 50px;
   color: white;
   top: 10px;
   left: 15px;
-   /* margin-top: 30px; */
-  /* margin-left: 40px;  */
-  /* cursor: pointer; */
+  z-index: 300;
 }
-.courage-div{
-    z-index: 20;
+.courage-div {
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.courage-text{
+.courage-text {
   font-family: "copper";
   font-size: 35px;
   font-weight: 900;
   color: rgb(255, 30, 0);
-  -webkit-text-stroke: 1.5px black;  
-             /* text-stroke: 2px black;  */
+  -webkit-text-stroke: 1.5px black;
 }
-.interact-div{
-    display: flex;
-    z-index: 100;
-    gap: 210px;
-    /* background-color: red; */
-    padding: 10px;
+.interact-div {
+  display: flex;
+  z-index: 100;
+  gap: 210px;
 }
-.computer-div{
-    width: 350px;
-    background-image: url('./src/assets/computer.png');
-    background-position: center;
-    background-repeat: none;
-    position: relative;
-    /* background-color: red; */
-    cursor: pointer;
+.computer-div {
+  width: 350px;
 
+  position: relative;
+  cursor: pointer;
 }
-.div-help{
-    position: absolute;
-    font-size: 50px;
-    top: 28%;
-    left: 26%;
-    text-decoration: none;
-    z-index: 100;
-    font-weight: 800;
-    color: red;
-    cursor: pointer;
-  -webkit-text-stroke: 1.5px black;  
+.div-help {
+  position: absolute;
+  width: 350px;
+  top: 100px;
+  left: 80px;
+  font-size: 50px;
+  text-decoration: none;
+  z-index: 100;
+  font-weight: 800;
+  color: #faea8c;
+  cursor: pointer;
+  -webkit-text-stroke: 1.5px black;
+}
 
-    /* background-color: red; */
+.villian {
+  position: absolute;
+  top: 0;
+  display: none;
 }
-.villian{
-    position: absolute;
-    top: 0;
-    display: none;
+.foot-div {
+  display: flex;
+  width: 190px;
+  right: 0;
+  top: 55%;
 }
-.foot-div{
+.fred-div {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 190px;
+  right: 13%;
+  top: 65%;
+}
+.katze-div {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 190px;
+  right: 45%;
+  top: 60%;
+}
+.cat-div {
+  display: flex;
+  width: 150px;
+  left: 0;
+  top: 70%;
+}
+.duck-div {
+  display: flex;
+  width: 150px;
+  left: 10%;
+  top: 60%;
+}
+.rams-div {
+  display: flex;
+  width: 400px;
+  left: 17%;
+  top: 10%;
+  z-index: 10;
+}
+
+@media only screen and (max-width: 765px) {
+  .rams-div,
+  .duck-div,
+  .cat-div,
+  .katze-div,
+  .fred-div,
+  .foot-div {
+    display: none !important;
+  }
+  .main-container {
     display: flex;
-    width: 190px;
-    right: 0;
-    top: 55%;
-}
-.fred-div{
-   display: flex;
-   flex-wrap: nowrap;
-    width: 190px;
-    right: 13%;
-    top: 65%; 
-}
-.katze-div{
-      display: flex;
-   flex-wrap: nowrap;
-    width: 190px;
-    right: 45%;
-    top: 60%; 
-}
-.cat-div{
-      display: flex;
-    width: 150px;
-    left: 0;
-    top: 70%;
-}
-.duck-div{
+    align-items: center;
+    justify-content: center;
+  }
+  .interact-div {
+    gap: 10px;
     display: flex;
-    width: 150px;
-    left: 10%;
-    top: 60%;
-}
-.rams-div{
-    display: flex;
-    width: 400px;
-    left: 17%;
-    top: 10%;
-    z-index: 10;
+    flex-direction: column;
+  }
 }

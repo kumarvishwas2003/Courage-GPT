@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import normal_theme from "./assets/audio/normal-theme.m4a";
 import { useRef } from "react";
+import './Sound_btn.css'
 export const Sound_btn = ({ music }) => {
   const [enable, setEnable] = useState(false);
   const [on,seton] = useState(true)
@@ -28,7 +29,7 @@ export const Sound_btn = ({ music }) => {
     console.log(enable);
   }
   return (
-    <div onClick={toggle}>
+    <div onClick={toggle} className="sound-btn"/*onTouchStart={toggle}*/>
       {enable ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
