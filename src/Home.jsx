@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import { Sound_btn } from "./components/Sound_btn/Sound_btn";
+import courage_dog from "/src/assets/courage-dog.gif";
 
 const Home = () => {
   // let root = `./src/assets/villians/`;
@@ -30,7 +31,7 @@ const Home = () => {
         </div>
         <div className="interact-div">
           <div className="courage-div">
-            <img src="./src/assets/courage-dog.gif" alt="" width={`230px`} />
+            <img src={courage_dog} alt="" width={`230px`} />
             <div className="courage-text">CourageGPT</div>
           </div>
           <div className="computer-div">
