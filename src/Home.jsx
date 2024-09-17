@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+import courage_house from "./src/assets/courage-house.jpg";
 import { Sound_btn } from "./components/Sound_btn/Sound_btn";
-import background from "./src/assets/courage-house.jpg";
 import courage_dog from "/src/assets/courage-dog.gif";
 import courage_computer from "/src/assets/computer.png";
 
@@ -20,7 +20,10 @@ const Home = () => {
 
   return (
     <>
-      <div className="main-container">
+      <div
+        className="main-container"
+        style={{ backgroundImage: `url(${courage_house})` }}
+      >
         <div className="icon-sound">
           <Sound_btn music={`normal-theme`} />
         </div>
