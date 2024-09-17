@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
-// import normal_theme from "./assets/audio/normal-theme.m4a";
+import normal_theme from "/src/assets/audio/normal-theme.m4a";
+import panic_theme from "/src/assets/audio/panic-theme.m4a"
 import { useRef } from "react";
 import './Sound_btn.css'
 export const Sound_btn = ({ music }) => {
   const [enable, setEnable] = useState(false);
-  const [on,seton] = useState(true)
-  const audioRef = useRef(new Audio(`./src/assets/audio/${music}.m4a`));
+  const [on, seton] = useState(true)
+  if (music == "normal-theme") {
+    var play_music = normal_theme
+    console.log("normal")
+  }
+  else {
+    play_music = panic_theme
+    console.log("painc")
+  }
+  const audioRef = useRef(new Audio(`${play_music}`));
 
   useEffect(() => {
     const audio = audioRef.current;
