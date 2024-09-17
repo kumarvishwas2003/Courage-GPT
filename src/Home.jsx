@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import courage_house from "./src/assets/courage-house.jpg";
+import courage_house from "/src/assets/courage-house.jpg";
 import { Sound_btn } from "./components/Sound_btn/Sound_btn";
 import courage_dog from "/src/assets/courage-dog.gif";
 import courage_computer from "/src/assets/computer.png";
