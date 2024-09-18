@@ -103,12 +103,13 @@ const Help = () => {
   };
 
   return (
-    <div
-      style={{
-        cursor: `url(${courageHandCursor}) 4 12,auto`,
-      }}
-    >
-      <div className="computer">
+    <div>
+      <div
+        className="computer"
+        style={{
+          cursor: `url(${courageHandCursor}) 4 12,auto`,
+        }}
+      >
         <div className="screen">
           <div className="first-row">
             <div className="right">
