@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import normal_theme from "/src/assets/audio/normal-theme.m4a";
-import panic_theme from "/src/assets/audio/panic-theme.m4a"
+import panic_theme from "/src/assets/audio/panic-theme.m4a";
 import { useRef } from "react";
-import './Sound_btn.css'
+import "./Sound_btn.css";
 export const Sound_btn = ({ music }) => {
   const [enable, setEnable] = useState(false);
-  const [on, seton] = useState(true)
+  const [on, seton] = useState(true);
   if (music == "normal-theme") {
-    var play_music = normal_theme
-    console.log("normal")
-  }
-  else {
-    play_music = panic_theme
-    console.log("painc")
+    var play_music = normal_theme;
+  } else {
+    play_music = panic_theme;
   }
   const audioRef = useRef(new Audio(`${play_music}`));
 
@@ -38,7 +35,7 @@ export const Sound_btn = ({ music }) => {
     console.log(enable);
   }
   return (
-    <div onClick={toggle} className="sound-btn"/*onTouchStart={toggle}*/>
+    <div onClick={toggle} className="sound-btn" /*onTouchStart={toggle}*/>
       {enable ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"

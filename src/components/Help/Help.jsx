@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Help.css";
 import { Sound_btn } from "../Sound_btn/Sound_btn";
 import { Link } from "react-router-dom";
+import courage_tv from "/src/assets/tv.png";
 import Groq from "groq-sdk";
 
 const groq = new Groq({
@@ -129,7 +130,7 @@ const Help = () => {
             </div>
             <div className="reset-div">
               <img
-                src="./src/assets/tv.png"
+                src={courage_tv}
                 alt=""
                 width={"140px"}
                 onClick={reset}
