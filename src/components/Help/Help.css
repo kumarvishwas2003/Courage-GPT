@@ -83,4 +83,11 @@
     width: 120px;
     height: 90px;
   }
+  .box{
+    font-size: 30px;
+  }
+  .response-box{
+    margin-top: -10px;
+    font-size: 20px;
+  }
 }
