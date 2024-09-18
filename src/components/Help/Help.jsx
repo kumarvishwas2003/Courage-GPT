@@ -3,6 +3,7 @@ import "./Help.css";
 import { Sound_btn } from "../Sound_btn/Sound_btn";
 import { Link } from "react-router-dom";
 import courage_tv from "/src/assets/tv.png";
+import courageHandCursor from "/src/assets/courage-hand.png";
 import Groq from "groq-sdk";
 
 const groq = new Groq({
@@ -102,7 +103,11 @@ const Help = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        cursor: `url(${courageHandCursor}) 4 12,auto`,
+      }}
+    >
       <div className="computer">
         <div className="screen">
           <div className="first-row">
@@ -129,12 +134,7 @@ const Help = () => {
               </div>
             </div>
             <div className="reset-div">
-              <img
-                src={courage_tv}
-                alt=""
-                width={"140px"}
-                onClick={reset}
-              />
+              <img src={courage_tv} alt="" width={"140px"} onClick={reset} />
             </div>
           </div>
 
