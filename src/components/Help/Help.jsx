@@ -4,6 +4,7 @@ import { Sound_btn } from "../Sound_btn/Sound_btn";
 import { Link } from "react-router-dom";
 import courage_tv from "/src/assets/tv.png";
 import courageHandCursor from "/src/assets/courage-hand.png";
+import keyboard_sound from "/src/assets/audio/keyboard.m4a"
 import Groq from "groq-sdk";
 
 const groq = new Groq({
@@ -79,7 +80,7 @@ const Help = () => {
 
   // Function to handle keyboard noise
   const keyboard_press = () => {
-    const audio_keyboard = new Audio("./src/assets/audio/keyboard.m4a");
+    const audio_keyboard = new Audio(keyboard_sound);
     audio_keyboard.currentTime = 0.5;
     audio_keyboard.play();
     audio_keyboard.volume = 1;
