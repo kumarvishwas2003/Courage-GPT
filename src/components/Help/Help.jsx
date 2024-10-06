@@ -65,12 +65,21 @@ const Help = () => {
       // Update the state with the response
       // In handelSubmit
       const responseText =
-        chatCompletion.choices[0]?.message?.content || "No response";
+        chatCompletion.choices[0]?.message?.content ||
+        "Ah, fantastic! The API key’s expired. Why? Well, turns out the creator doesn’t have enough cash to buy lifetime access. So, unless you feel like hiring them (which I highly recommend), we’re done here. If you're curious, the system was working flawlessly before... you know, with actual responses. But now? Just enjoy this awkward silence.";
       setResponse(responseText);
       console.log(responseText);
+      const NotFunctioning =
+        "Ah, fantastic! The API key’s expired. Why? Well, turns out the creator doesn’t have enough cash to buy lifetime access. So, unless you feel like hiring them (which I highly recommend), we’re done here. If you're curious, the system was working flawlessly before... you know, with actual responses. But now? Just enjoy this awkward silence.";
+      if (responseText == "No response") {
+        setTimeout(() => speak(NotFunctioning), 1000); // Delay to ensure text is set
+        setResponse(NotFunctioning);
+      }
+        
+      
       setTimeout(() => speak(responseText), 1000); // Delay to ensure text is set
-
       setResponse(responseText);
+      
     } catch (err) {
       setError("Failed to fetch the response. Please try again later.");
     }
